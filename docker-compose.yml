@@ -1,0 +1,18 @@
+version: "3"
+services:
+
+  terminal:
+    build: ./docker/terminal-python/
+    image: mecab
+    container_name: terminal-python
+    volumes:
+      - .:/code/workdir
+
+  jupyter:
+    build: ./docker/jupyter-python/
+    image: mecab-jupyter
+    container_name: jupyter-python
+    volumes:
+      - .:/notebooks
+    ports:
+      - "8888:8888"
